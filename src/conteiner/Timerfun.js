@@ -9,7 +9,7 @@ function Timerfun(props) {
         setTime(new Date())
     }
 
-    useEffect(() => {
+    useEffect(() => {                                         // useEffect thi 3 hare use thay
         //3. componentdidmount //5. componentdidupdate
         
         const timer = setInterval(() => tick(), 1000);

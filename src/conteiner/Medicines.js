@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const medicinesData = ["medicines", 
   {
@@ -60,10 +60,22 @@ const medicinesData = ["medicines",
 ]
 
 function Medicines(props) {
+  const [loading, setloading] = useState(true)
   const [Medicines, setMedicines] = useState(medicinesData)
+
+  //hook
+  useEffect(() => {
+    setTimeout(() => {
+      setloading(false);
+    },2000)
+    return() => {
+
+    }
+  }, [loading])
   return (
     <div>
-      <table border="1">
+      {loading ? (<span>loading....</span>):
+      (<table border="1">
         <tr>
           <th>Id</th>
           <th>Name</th>
@@ -83,7 +95,7 @@ function Medicines(props) {
             </tr>
           );
         })}
-      </table>
+      </table> )}
     </div>
   );
 }

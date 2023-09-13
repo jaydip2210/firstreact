@@ -27,9 +27,9 @@ function App() {
       {/* <CountryFun />
       <CounterFun /> */}
 
-      {/* <Medicines /> */}
+      <Medicines />
 
-      <Timer />
+      {/* <Timer /> */}
 
       {/* <Timerfun /> */}
     </>
