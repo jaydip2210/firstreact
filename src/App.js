@@ -9,6 +9,7 @@ import CounterFun from './conteiner/CounterFun';
 import Medicines from './conteiner/Medicines';
 import Timer from './conteiner/Timer';
 import Timerfun from './conteiner/Timerfun';
+import Quotes from './conteiner/Quotes';
 
 function App() {
   return (
@@ -27,11 +28,13 @@ function App() {
       {/* <CountryFun />
       <CounterFun /> */}
 
-      <Medicines />
+      {/* <Medicines /> */}
 
       {/* <Timer /> */}
 
       {/* <Timerfun /> */}
+
+      <Quotes />
     </>
   );
 }
