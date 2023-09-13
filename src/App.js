@@ -6,6 +6,9 @@ import Props from './conteiner/Props';
 import Functional from './conteiner/Functional';
 import CountryFun from './conteiner/CountryFun';
 import CounterFun from './conteiner/CounterFun';
+import Medicines from './conteiner/Medicines';
+import Timer from './conteiner/Timer';
+import Timerfun from './conteiner/Timerfun';
 
 function App() {
   return (
@@ -21,8 +24,14 @@ function App() {
 
       <Functional text="Functional component"/> */}
 
-      <CountryFun />
-      <CounterFun />
+      {/* <CountryFun />
+      <CounterFun /> */}
+
+      {/* <Medicines /> */}
+
+      <Timer />
+
+      {/* <Timerfun /> */}
     </>
   );
 }
