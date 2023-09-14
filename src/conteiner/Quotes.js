@@ -23,31 +23,22 @@ function Quotes(props) {
 
     const handlePrev = () => {
         let new_index = index - 1
-
-        if(index <= 0) {
-            setIndex(new_index)
-        }
-
+        setIndex(new_index)
     }
 
     const handleNext = () => {
         let new_index = index + 1
-        if(index<qdata.length) {
-            setIndex(new_index)
-        }
-        
+        setIndex(new_index)
     }
 
     return (
         <div>
-            {isloading ? <p>Loading....</p> : 
+            {isloading ? <p>Loading....</p> :
                 <>
                     <p>{qdata[index].text}</p>
                     <p>--{qdata[index].author}</p>
-                    <button onClick={handlePrev}
-                        // disabled = {}
-                    > Previous</button>
-                    <button onClick={handleNext}>Next</button>
+                    <button onClick={handlePrev} disabled={index === 0 ? true : false}> Previous</button>
+                    <button onClick={handleNext} disabled={index === qdata.length-1 ? true : false}>Next</button>
                 </>
             }
         </div>
