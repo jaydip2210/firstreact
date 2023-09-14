@@ -10,6 +10,7 @@ import Medicines from './conteiner/Medicines';
 import Timer from './conteiner/Timer';
 import Timerfun from './conteiner/Timerfun';
 import Quotes from './conteiner/Quotes';
+import Product from './conteiner/Product';
 
 function App() {
   return (
@@ -34,7 +35,9 @@ function App() {
 
       {/* <Timerfun /> */}
 
-      <Quotes />
+      {/* <Quotes /> */}
+
+      <Product />
     </>
   );
 }
