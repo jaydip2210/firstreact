@@ -11,6 +11,7 @@ import Timer from './conteiner/Timer';
 import Timerfun from './conteiner/Timerfun';
 import Quotes from './conteiner/Quotes';
 import Product from './conteiner/Product';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

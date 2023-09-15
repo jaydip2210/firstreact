@@ -11,21 +11,20 @@ function Product(props) {
         setSearch(val);
 
         let fdata = fake.filter((v) => 
-            v.text.toLowerCase().includes(val.toLowerCase()) ||
-            v.author.toLowerCase().includes(val.toLowerCase())
+            v.category.toLowerCase().includes(val.toLowerCase()) ||
+            v.price.toString().includes(val.toString())
         )
         console.log(fdata);
         setFilterData(fdata);
     }
 
     const getData = async () => {
-        let response = await fetch('https://type.fit/api/quotes');
-        // https://fakestoreapi.com/products
+        let response = await fetch('https://fakestoreapi.com/products');
         // console.log(response);
           
         let data = await response.json();
         setFake(data);
-        // console.log(data);
+        console.log(data);
         setIsLoading(false);
     }    
 
@@ -48,9 +47,9 @@ function Product(props) {
                     {finalData.map((v) => {
                         return (
                             <div className='card'>                              
-                                    {/* <img id='img' src={value.image} alt='' /> */}
-                                    <h2>{v.text}</h2>
-                                    <h2>{v.author}</h2>
+                                    <img id='img' src={v.image} alt='' />
+                                    <h2>{v.category}</h2>
+                                    <h2>{v.price}</h2>
                             </div>
                         )
                     })}
