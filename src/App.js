@@ -12,6 +12,8 @@ import Timerfun from './conteiner/Timerfun';
 import Quotes from './conteiner/Quotes';
 import Product from './conteiner/Product';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Dummyproduct from './conteiner/Dummyproduct';
+
 
 function App() {
   return (
@@ -38,7 +40,9 @@ function App() {
 
       {/* <Quotes /> */}
 
-      <Product />
+      {/* <Product /> */}
+
+      <Dummyproduct />
     </>
   );
 }
