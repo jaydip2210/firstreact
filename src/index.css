@@ -36,3 +36,31 @@ code {
   text-align: center;
 }
 
+.description {
+  /* background-color: gray; */
+  /* display: none; */
+}
+
+.description-active {
+  /* display: block; */
+}
+
+.green-active {
+  background-color: greenyellow;
+}
+
+/* .green-active {
+  background-color: greenyellow;
+}
+
+.green-active {
+  background-color: greenyellow;
+}
+
+.green-active {
+  background-color: greenyellow;
+}
+
+.green-active {
+  background-color: greenyellow;
+} */
