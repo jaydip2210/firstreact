@@ -13,6 +13,8 @@ import Quotes from './conteiner/Quotes';
 import Product from './conteiner/Product';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dummyproduct from './conteiner/Dummyproduct';
+import Navbar from './conteiner/Navbar';
+import Test from './conteiner/Test';
 
 
 function App() {
@@ -42,7 +44,11 @@ function App() {
 
       {/* <Product /> */}
 
-      <Dummyproduct />
+      {/* <Dummyproduct /> */}
+
+      {/* <Navbar /> */}
+
+      <Test />
     </>
   );
 }

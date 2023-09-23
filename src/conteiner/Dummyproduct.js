@@ -10,17 +10,22 @@ function Dummyproduct(props) {
     const [Search, setSearch] = useState("");
     const [sort, setSort] = useState("");
     const [isOpen, setIsOpen] = useState(false);
-    const [select, setSelect] = useState([]);
     const [category, setCategory] = useState([]);
+    const [selectCat, setSelectCat] = useState('');
 
 
     const handlesearchsort = () => {
-        console.log("ok", sort);
+        console.log("ok", selectCat);
 
         let fdata = product.filter((v) =>
             v.title.toLowerCase().includes(Search.toLowerCase()) ||
             v.price.toString().includes(Search.toString())
         )
+
+        if(selectCat !== '') {
+            fdata = fdata.filter((d) => d.category === selectCat);
+        }
+
         console.log(fdata);
 
         fdata = fdata.sort((a, b) => {
@@ -60,16 +65,18 @@ function Dummyproduct(props) {
         let data = await response.json();
         // console.log(data.products);
 
+        let uniqecat = [];
+        product.map((p) => {
+            if(!uniqecat.includes(p.category)) {
+                uniqecat.push(p.category);
+            }
+        });
+        setCategory(uniqecat);
+
         setProduct(data.products);
         setIsLoading(false);
-
-        let uniqecat = [];
-
-        if (uniqecat.includes !== '') {
-            uniqecat.push(product);
-        }
-
-        setCategory(uniqecat);
+       
+        // setCategory(uniqecat);
     }
 
     useEffect(() => {
@@ -112,7 +119,15 @@ function Dummyproduct(props) {
                     </select>
                     <br></br>
                     <br></br>
-
+                    <div>
+                        {
+                            category.map((c) => {
+                                return(
+                                    <button onClick={() => setSelectCat(c)}>{c}</button>
+                                )
+                            })
+                        }
+                    </div>
 
                     <div className='row'>
                         {finalData.map((v, i) => {
