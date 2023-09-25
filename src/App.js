@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Dummyproduct from './conteiner/Dummyproduct';
 import Navbar from './conteiner/Navbar';
 import Test from './conteiner/Test';
+import Test1 from './conteiner/Test1';
 
 
 function App() {
@@ -48,7 +49,9 @@ function App() {
 
       {/* <Navbar /> */}
 
-      <Test />
+      {/* <Test /> */}
+
+      <Test1 />
     </>
   );
 }
