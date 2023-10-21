@@ -1,5 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import classNames from 'classnames';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: '0 4px',
+    },
+  }));
+
 
 function Dummyproduct(props) {
     const [product, setProduct] = useState([]);
@@ -11,7 +24,6 @@ function Dummyproduct(props) {
     const [sort, setSort] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const [category, setCategory] = useState([]);
-    const [selectCat, setSelectCat] = useState('');
 
 
     const handlesearchsort = () => {
@@ -22,7 +34,7 @@ function Dummyproduct(props) {
             v.price.toString().includes(Search.toString())
         )
 
-        if(selectCat !== '') {
+        if (selectCat !== '') {
             fdata = fdata.filter((d) => d.category === selectCat);
         }
 
@@ -67,7 +79,7 @@ function Dummyproduct(props) {
 
         let uniqecat = [];
         product.map((p) => {
-            if(!uniqecat.includes(p.category)) {
+            if (!uniqecat.includes(p.category)) {
                 uniqecat.push(p.category);
             }
         });
@@ -75,7 +87,7 @@ function Dummyproduct(props) {
 
         setProduct(data.products);
         setIsLoading(false);
-       
+
         // setCategory(uniqecat);
     }
 
@@ -86,12 +98,22 @@ function Dummyproduct(props) {
     // let finalData = filterData.length > 0 ? filterData : product;
     let finalData = handlesearchsort();
 
+    const handleCart = (id) => {
+        console.log(id);
+    }
 
     return (
         <div className='container'>
             {isloading ? <p>Loading....</p> :
                 <>
                     <h1>Product</h1>
+
+                    <IconButton aria-label="cart">
+                        <StyledBadge badgeContent={0} color="secondary">
+                            <ShoppingCartIcon />
+                        </StyledBadge>
+                    </IconButton>
+
                     <input placeholder='Search' onChange={(event) => setSearch(event.target.value)}></input>
                     <br></br>
                     <div>
@@ -119,7 +141,7 @@ function Dummyproduct(props) {
                     </select>
                     <br></br>
                     <br></br>
-                    <div>
+                    {/* <div className='row'>
                         {
                             category.map((c) => {
                                 return(
@@ -127,7 +149,7 @@ function Dummyproduct(props) {
                                 )
                             })
                         }
-                    </div>
+                    </div> */}
 
                     <div className='row'>
                         {finalData.map((v, i) => {
@@ -136,6 +158,7 @@ function Dummyproduct(props) {
                                     <img id='img' src={v.images[0]} alt='' />
                                     <h2>{v.title}</h2>
                                     <h2>{v.price}</h2>
+                                    <button onClick={() => handleCart(v.id)}>AddToCart</button>
                                 </div>
                             )
                         })}
