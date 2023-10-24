@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Card } from 'reactstrap';
+=======
+import Card from './Card';
+>>>>>>> dee048c884f88fe1758a501efe0ecb905aaabfee
 // import Card from './Card';
 
 const data = [
@@ -161,8 +165,23 @@ const data = [
 
 function Test1(props) {
     return (
-        <div>
-            <Card data={data} />
+        <div className='container'>
+            <div className='row'>
+                {
+                    data.map((v, i) => {
+                        return (
+                            <div className='col-md-4'>
+                                <Card
+                                    id={v.id}
+                                    img={v.url}
+                                    title={v.name}
+                                    subtitle={v.price}
+                                />
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     );
 }

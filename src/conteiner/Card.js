@@ -1,24 +1,15 @@
 import React from 'react';
-import { Heading, Heading1, Heading2, Ptag } from './Card.Style';
+import { Heading, Heading1, MainDiv, Ptag } from './Card.Style';
 
-function Card({data}) {
+function Card({ id, img = '', title = '', subtitle }) {
     return (
         <div>
             {
-                <div className='row'> 
-                    {
-                        data.map((v) => {
-                            return (
-                                <div className='col-md-4'>
-                                    <Heading>{v.name}</Heading>
-                                    <Ptag>{v.features}</Ptag>
-                                    <Heading1>{v.price}</Heading1>
-                                    <Heading2>{v.category}</Heading2>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
+                <MainDiv>
+                    <Heading1>{img}</Heading1>
+                    <Heading>{title}</Heading>
+                    <Ptag>{subtitle}</Ptag>
+                </MainDiv>
             }
         </div>
     );
