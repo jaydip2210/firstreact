@@ -45,13 +45,13 @@ function App() {
 
       {/* <Product /> */}
 
-      {/* <Dummyproduct /> */}
+      <Dummyproduct />
 
       {/* <Navbar /> */}
 
       {/* <Test /> */}
 
-      <Test1 />
+      {/* <Test1 /> */}
     </>
   );
 }
