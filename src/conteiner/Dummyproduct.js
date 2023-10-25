@@ -3,6 +3,8 @@ import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { addToCart } from './redux/action/cart.action';
+import { useDispatch, useSelector } from 'react-redux';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
@@ -24,6 +26,13 @@ function Dummyproduct(props) {
     const [sort, setSort] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const [category, setCategory] = useState([]);
+    const [selectCat, setSelectCat] = useState('');
+
+    const dispatch = useDispatch()
+
+
+    const cart = useSelector(state => state.cart)
+    console.log(cart);
 
 
     const handlesearchsort = () => {
@@ -91,17 +100,20 @@ function Dummyproduct(props) {
         // setCategory(uniqecat);
     }
 
+    const handleCart = (id) => {
+        // console.log("clickButton");
+        console.log(id);
+
+        dispatch(addToCart(id))
+    }
+
+
     useEffect(() => {
         getdata();
     }, [])
 
     // let finalData = filterData.length > 0 ? filterData : product;
     let finalData = handlesearchsort();
-
-    const handleCart = (id) => {
-        console.log(id);
-    }
-
     return (
         <div className='container'>
             {isloading ? <p>Loading....</p> :
@@ -158,7 +170,7 @@ function Dummyproduct(props) {
                                     <img id='img' src={v.images[0]} alt='' />
                                     <h2>{v.title}</h2>
                                     <h2>{v.price}</h2>
-                                    <button onClick={() => handleCart(v.id)}>AddToCart</button>
+                                    <button onClick={() => handleCart(v.id)}>Add To Cart</button>
                                 </div>
                             )
                         })}

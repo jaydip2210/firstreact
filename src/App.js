@@ -11,7 +11,7 @@ import Timer from './conteiner/Timer';
 import Timerfun from './conteiner/Timerfun';
 import Quotes from './conteiner/Quotes';
 import Product from './conteiner/Product';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Dummyproduct from './conteiner/Dummyproduct';
 import Navbar from './conteiner/Navbar';
 import Test from './conteiner/Test';
@@ -19,7 +19,10 @@ import Test1 from './conteiner/Test1';
 import { Provider } from 'react-redux';
 import { configureStore } from './conteiner/redux/store';
 import Counter from './conteiner/counter/Counter';
+import Header from './componets/Header/Header';
 import Cart from './conteiner/cart/Cart';
+import { from } from 'stylis';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const store = configureStore();
 
@@ -50,18 +53,28 @@ function App() {
 
       {/* <Product /> */}
 
-      <Dummyproduct />
-
-      <Cart />
+      {/* <Dummyproduct /> */}
 
       {/* <Navbar /> */}
 
       {/* <Test /> */}
 
       {/* <Test1 /> */}
-      {/* <Provider store={store}>
-        <Counter />
-      </Provider> */}
+
+
+      <Provider store={store}>
+        {/* <Counter /> */}
+
+        <Router>
+          <Routes>
+            <Route path='/header' element={<Header />} />          
+            <Route path="/product" element={<Dummyproduct />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </Router>
+
+
+      </Provider>
     </>
   );
 }
